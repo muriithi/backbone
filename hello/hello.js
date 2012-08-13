@@ -1,15 +1,30 @@
 (function($){
 	var ListView = Backbone.View.extend({
-		el : $('body'),			     	//Part of DOM where the view will be rendered
+		el : $('body'),			     				//Part of DOM where the view will be rendered
 		
-		initialize : function(){		//Called when view instance is created	
-			_.bindAll(this , 'render'); 	// binds the value of 'this' inside these functions to ListView
+		events : {
+			"click button#add" :"addItem"
 			
-			this.render();			//renders view in el	
+		},
+		
+		initialize : function(){					//Called when view instance is created	
+			_.bindAll(this , 'render' , 'addItem'); 	// binds the value of 'this' inside these functions to ListView
+			
+			this.counter = 0;			
+			this.render();						//renders view in el	
 			
 		},
 		render : function(){
-			$(this.el).append("<p>Hello Backbone!</p>");
+			
+			$(this.el).append("<button id ='add' >Add Item</button>");
+			$(this.el).append("<ul></ul>");
+			
+			
+		},
+		
+		addItem : function(){
+			this.counter++;
+			$('ul', this.el).append("<li>hello world "+this.counter+"</li>");
 			
 		},
 		

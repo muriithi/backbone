@@ -1,11 +1,11 @@
 (function($){
 	var ListView = Backbone.View.extend({
-		el : $('body'),			     //Part of DOM where the view will be rendered
+		el : $('body'),			     	//Part of DOM where the view will be rendered
 		
-		initialize : function(){
-			_.bindAll(this , 'render'); // binds the value of 'this' inside these functions to ListView
+		initialize : function(){		//Called when view instance is created	
+			_.bindAll(this , 'render'); 	// binds the value of 'this' inside these functions to ListView
 			
-			this.render();		
+			this.render();			//renders view in el	
 			
 		},
 		render : function(){
